@@ -6,26 +6,26 @@ import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
 
-public class DataOUT {
+public abstract class DataOUT {
 
-	public DataOUT() {
-		try {
-			udpSocket = new DatagramSocket(52013);
-		} catch (SocketException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	public DataOUT() {}
+	
+	static {try {
+		udpSocket = new DatagramSocket(52013);
+	} catch (SocketException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}}
 
-	private DatagramSocket udpSocket = null;
-	private InetSocketAddress inetSocket = null;
-	private DatagramPacket datagram = null;
+	private static DatagramSocket udpSocket;
+	private static InetSocketAddress inetSocket;
+	private static DatagramPacket datagram;
 
 	public void buildDataPacket(String payloadString) {
 
 	}
 	
-	public void sendData(String payloadString) {
+	public static void sendData(String payloadString) {
 		byte[] payload = payloadString.getBytes();
 		try {
 			datagram = new DatagramPacket(payload, payload.length, inetSocket);
@@ -41,7 +41,7 @@ public class DataOUT {
 		}
 	}
 	
-	public void setInetsocket(String ip) {
+	public static void setInetsocket(String ip) {
 		inetSocket = new InetSocketAddress(ip, 52012);
 	}
 

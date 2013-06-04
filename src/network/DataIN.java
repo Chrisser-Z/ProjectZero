@@ -22,7 +22,6 @@ public class DataIN extends Thread {
 	DatagramPacket datagram = new DatagramPacket(data, data.length);
 
 	public void run() {
-
 		try {
 			udpSocket.receive(datagram);
 		} catch (IOException e) {
@@ -30,6 +29,5 @@ public class DataIN extends Thread {
 			e.printStackTrace();
 		}
 		System.out.println(new String(data));
-
 	}
 }

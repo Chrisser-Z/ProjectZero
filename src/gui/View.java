@@ -3,8 +3,6 @@ package gui;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
-
 import net.miginfocom.swing.MigLayout;
 
 
