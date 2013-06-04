@@ -39,8 +39,10 @@ public class DataController extends Thread {
 					System.out.println(new String(currentRawData));
 				}
 
-
-				if(new String(currentRawData).equals("stop")) {
+				String test = new String(currentRawData);
+				System.out.println(test+"gay");
+				
+				if(test.equals("stop")) {
 					System.out.println("penis");
 					dataIn.stopThread();
 				}

@@ -15,4 +15,8 @@ public class DataTranslater {
 
 		return gameLogicData;		
 	}
+	
+	public String byteToString(byte[] data) {
+		return string;
+	}
 }
