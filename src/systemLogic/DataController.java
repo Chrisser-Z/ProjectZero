@@ -30,27 +30,27 @@ public class DataController extends Thread {
 
 		while (true) {
 			currentRawData = dataIn.getNewData();
-			
-			try {
-				if (currentRawData == null || currentRawData == dataIn.getNewData()) {
-					System.out.println("Checking for new Data");
-					System.out.println(new String(currentRawData));
-				} else {
-					System.out.println(new String(currentRawData));
-				}
 
-				String test = new String(currentRawData);
-				System.out.println(test+"gay");
-				
-				if(test.equals("stop")) {
-					System.out.println("penis");
-					dataIn.stopThread();
-				}
-				
-				if(new String(currentRawData).equals("start")) {
-					dataIn.startThread();
-				}
-				
+			try {
+				// if (currentRawData == null || currentRawData ==
+				// dataIn.getNewData()) {
+				// System.out.println("Checking for new Data");
+				// System.out.println(new String(currentRawData));
+				// } else {
+				// System.out.println(new String(currentRawData));
+				// }
+				//
+				// String test = dataTranslater.byteToString(currentRawData);
+				//
+				// if(test.equals("stop")) {
+				// System.out.println("penis");
+				// dataIn.stopThread();
+				// }
+				//
+				// if(new String(currentRawData).equals("start")) {
+				// dataIn.startThread();
+				// }
+
 				// if(!dataIn.getNewData().equals(currentRawData)){
 				// translateData(dataIn.getNewData());
 				// currentRawData = dataIn.getNewData();
