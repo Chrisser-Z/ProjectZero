@@ -33,14 +33,14 @@ public class DataIN extends Thread {
 			System.out.println(run);
 		}
 	}
-	
-	public void stopThread() {
-		run = false;
-	}
-	
-	public void startThread() {
-		run = true;
-	}
+
+	// public void stopThread() {
+	// run = false;
+	// }
+	//
+	// public void startThread() {
+	// run = true;
+	// }
 
 	public byte[] getNewData() {
 		return data;
