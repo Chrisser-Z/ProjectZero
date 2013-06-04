@@ -1,14 +1,18 @@
 package main;
 
+import network.DataIN;
+import gui.Controller;
+
 public class Main {
 
-	/**
-	 * @param args
-	 */
+	static Controller controller = new Controller();
+	
+	
 	public static void main(String[] args) {
-		System.out.println("Hello This is Dog");
-		System.out.println("Xbox go home!");
-
+		DataIN dataIn = new DataIN();
+		dataIn.start();
+		controller.showGui();
+		
 	}
 
 }

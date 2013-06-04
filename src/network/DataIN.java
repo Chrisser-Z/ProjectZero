@@ -8,7 +8,7 @@ import java.net.SocketException;
 public class DataIN extends Thread {
 
 	DatagramSocket udpSocket = null;
-	byte[] data = null;
+	byte[] data = new byte[100];;
 
 	public DataIN() {
 		try {
@@ -17,7 +17,6 @@ public class DataIN extends Thread {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		data = new byte[100];
 	}
 
 	DatagramPacket datagram = new DatagramPacket(data, data.length);
@@ -30,6 +29,7 @@ public class DataIN extends Thread {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(new String(data));
 
 	}
 }
