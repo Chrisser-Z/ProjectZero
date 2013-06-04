@@ -25,9 +25,6 @@ public abstract class DataOUT {
 	private static InetSocketAddress inetSocket;
 	private static DatagramPacket datagram;
 
-	public void buildDataPacket(String payloadString) {
-
-	}
 
 	public static void sendData(String payloadString) {
 		byte[] payload = payloadString.getBytes();

@@ -22,19 +22,24 @@ public class DataIN extends Thread {
 	}
 
 	public void run() {
-		while (run) {
+		while (run == true) {
 			try {
 				udpSocket.receive(datagram);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println(new String(data));
+			System.out.println("Received!");
+			System.out.println(run);
 		}
 	}
 	
 	public void stopThread() {
 		run = false;
+	}
+	
+	public void startThread() {
+		run = true;
 	}
 
 	public byte[] getNewData() {

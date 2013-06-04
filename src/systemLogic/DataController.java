@@ -19,7 +19,6 @@ public class DataController extends Thread {
 	private byte[] currentRawData = null;
 
 	public DataController() {
-
 		dataIn = new DataIN();
 		gameEngine = new GameEngine();
 		dataTranslater = new DataTranslater();
@@ -35,8 +34,19 @@ public class DataController extends Thread {
 			try {
 				if (currentRawData == null || currentRawData == dataIn.getNewData()) {
 					System.out.println("Checking for new Data");
+					System.out.println(new String(currentRawData));
 				} else {
 					System.out.println(new String(currentRawData));
+				}
+
+
+				if(new String(currentRawData).equals("stop")) {
+					System.out.println("penis");
+					dataIn.stopThread();
+				}
+				
+				if(new String(currentRawData).equals("start")) {
+					dataIn.startThread();
 				}
 				
 				// if(!dataIn.getNewData().equals(currentRawData)){
