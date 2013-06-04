@@ -33,12 +33,10 @@ public abstract class DataOUT {
 		byte[] payload = payloadString.getBytes();
 		try {
 			datagram = new DatagramPacket(payload, payload.length, inetSocket);
+			udpSocket.send(datagram);
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		try {
-			udpSocket.send(datagram);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

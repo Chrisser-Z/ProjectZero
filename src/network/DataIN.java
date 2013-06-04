@@ -7,7 +7,7 @@ import java.net.SocketException;
 
 public class DataIN extends Thread {
 
-	private DatagramSocket udpSocket = null;
+	private DatagramSocket udpSocket;
 	private byte[] data = new byte[100];
 	private DatagramPacket datagram = new DatagramPacket(data, data.length);
 	private boolean run = true;

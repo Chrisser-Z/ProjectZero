@@ -15,7 +15,7 @@ public class View extends JFrame {
 	
 	public JButton sendButton = new JButton("Send");
 	public JTextField entryTxtField = new JTextField();
-	public JTextField ipTxtField = new JTextField();
+	public JTextField ipTxtField = new JTextField("127.0.0.1");
 	
 	
 	public View(){
