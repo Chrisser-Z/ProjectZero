@@ -5,12 +5,12 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
-import systemLogic.DataController;
-
 public class DataIN extends Thread {
 
-	DatagramSocket udpSocket = null;
-	byte[] data = new byte[100];
+	private DatagramSocket udpSocket = null;
+	private byte[] data = new byte[100];
+	private DatagramPacket datagram = new DatagramPacket(data, data.length);
+	private boolean run = true;
 
 	public DataIN() {
 		try {
@@ -21,18 +21,22 @@ public class DataIN extends Thread {
 		}
 	}
 
-	DatagramPacket datagram = new DatagramPacket(data, data.length);
-
 	public void run() {
-		try {
-			udpSocket.receive(datagram);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while (run) {
+			try {
+				udpSocket.receive(datagram);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(new String(data));
 		}
-		System.out.println(new String(data));
 	}
 	
+	public void stopThread() {
+		run = false;
+	}
+
 	public byte[] getNewData() {
 		return data;
 	}

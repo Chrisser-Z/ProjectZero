@@ -8,14 +8,18 @@ import java.net.SocketException;
 
 public abstract class DataOUT {
 
-	public DataOUT() {}
-	
-	static {try {
-		udpSocket = new DatagramSocket(52013);
-	} catch (SocketException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}}
+	public DataOUT() {
+		
+	}
+
+	static {
+		try {
+			udpSocket = new DatagramSocket(52013);
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	private static DatagramSocket udpSocket;
 	private static InetSocketAddress inetSocket;
@@ -24,7 +28,7 @@ public abstract class DataOUT {
 	public void buildDataPacket(String payloadString) {
 
 	}
-	
+
 	public static void sendData(String payloadString) {
 		byte[] payload = payloadString.getBytes();
 		try {
@@ -40,7 +44,7 @@ public abstract class DataOUT {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void setInetsocket(String ip) {
 		inetSocket = new InetSocketAddress(ip, 52012);
 	}
