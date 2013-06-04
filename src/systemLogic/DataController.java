@@ -61,7 +61,7 @@ public class DataController extends Thread {
 				// oldData = newData;
 				// } else {}
 
-				sleep(1000);
+				sleep(10000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

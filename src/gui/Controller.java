@@ -6,12 +6,14 @@ import network.*;
 
 public class Controller {
 
+	private ViewGame _gameView;
 	private View _view;
 	private Model _model;
 
 	public Controller() {
 		this._model = new Model();
-		this._view = new View();
+		this._view = new View();		
+		this._gameView = new ViewGame();
 
 		_view.sendButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -25,6 +27,7 @@ public class Controller {
 
 	public void showGui() {
 		this._view.setVisible(true);
+		this._gameView.setVisible(true);
 	}
 
 }
