@@ -11,6 +11,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		controller.showGui();		
+		System.out.println("Hello this is dog");
 	}
 
 }
