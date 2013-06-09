@@ -1,67 +1,41 @@
 package systemLogic;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import gameContent.Enemy;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import network.DataIN;
+import network.Receiver;
+
+
 
 public class DataController extends Thread {
 
-	private DataIN dataIn;
+	
 	private GameEngine gameEngine;
-	private DataTranslater dataTranslater;
+	private Receiver receiver;
+	private HashMap<Integer, Byte> newData = new HashMap<Integer, Byte>();
 
-	private Map<String, String> newData = new HashMap<String, String>();
-	private Map<String, String> oldData = new HashMap<String, String>();
-
-	private byte[] currentRawData = null;
-
+	
 	public DataController() {
-		dataIn = new DataIN();
+		receiver = new Receiver();
 		gameEngine = new GameEngine();
-		dataTranslater = new DataTranslater();
 		start();
-		dataIn.start();
 	}
 
 	public void run() {
 
 		while (true) {
-			currentRawData = dataIn.getNewData();
-
 			try {
-				// if (currentRawData == null || currentRawData ==
-				// dataIn.getNewData()) {
-				// System.out.println("Checking for new Data");
-				// System.out.println(new String(currentRawData));
-				// } else {
-				// System.out.println(new String(currentRawData));
-				// }
-				//
-				// String test = dataTranslater.byteToString(currentRawData);
-				//
-				// if(test.equals("stop")) {
-				// System.out.println("penis");
-				// dataIn.stopThread();
-				// }
-				//
-				// if(new String(currentRawData).equals("start")) {
-				// dataIn.startThread();
-				// }
+				newData = receiver.getData();
+				
+				if (newData != null){
+					//TODO: Stuff
+					System.out.println("Trololol this is newData: " + newData);
 
-				// if(!dataIn.getNewData().equals(currentRawData)){
-				// translateData(dataIn.getNewData());
-				// currentRawData = dataIn.getNewData();
-				// }
-				//
-				// if (!newData.equals(oldData)){
-				// gameEngine.doGame(newData);
-				// oldData = newData;
-				// } else {}
+				 } else {}
 
-				sleep(10000);
+				sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -69,8 +43,6 @@ public class DataController extends Thread {
 		}
 	}
 
-	public void translateData(byte[] data) {
-		newData = dataTranslater.translateData(data);
-	}
+
 
 }

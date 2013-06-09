@@ -2,32 +2,34 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import core.DataOUT;
 import network.*;
 
 public class Controller {
 
-	private ViewGame _gameView;
-	private View _view;
-	private Model _model;
+	private ViewGame gameView;
+	private View view;
+	private Model model;
+	private Emitter emitter;
 
 	public Controller() {
-		this._model = new Model();
-		this._view = new View();		
-		this._gameView = new ViewGame();
+		model = new Model();
+		view = new View();		
+		gameView = new ViewGame();
+		emitter = new Emitter();
+		
 
-		_view.sendButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (!_view.ipTxtField.getText().isEmpty()) {
-					DataOUT.setInetsocket(_view.ipTxtField.getText());
-					DataOUT.sendData(_view.entryTxtField.getText());
-				}
-			}
+	gameView.getSendButton().addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			emitter.emitData();
+		}
 		});
 	}
 
 	public void showGui() {
-		this._view.setVisible(true);
-		this._gameView.setVisible(true);
+		//this.view.setVisible(true);
+		this.gameView.setVisible(true);
 	}
 
 }

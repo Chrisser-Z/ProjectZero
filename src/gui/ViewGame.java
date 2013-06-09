@@ -1,5 +1,7 @@
 package gui;
 
+import gameContent.Definitions;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
@@ -27,13 +29,20 @@ public class ViewGame extends JFrame{
 	private JButton sendButton = new JButton("Send");
 
 	public ViewGame() {
-		setSize(600, 600);		
+		setSize(600, 300);		
 		setTitle("Da Imba Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MigLayout mig = new MigLayout("wrap 4",
 				"[200]10[100]50[100]10[50]",
 				"");
 		setLayout(mig);
+		
+		
+		Definitions.enemyCounterList.add(countVillainOne);
+		Definitions.enemyCounterList.add(countVillainTwo);
+
+		
+		
 		this.add(overView, "w 200, h 70, span 1 2");
 		this.add(buyWeaponOne, "w 100");
 		this.add(villainOne, "w 100");
@@ -42,10 +51,15 @@ public class ViewGame extends JFrame{
 		this.add(villainTwo, "w 100");
 		this.add(countVillainTwo, "w 50");
 		this.add(eventLog, "span 3, w 470, h 70");
-		this.add(sendButton, "w 200");
+		this.add(getSendButton(), "w 200");
 
 
 
 	}
+
+	public JButton getSendButton() {
+		return sendButton;
+	}
+
 
 }

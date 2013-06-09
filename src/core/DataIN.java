@@ -1,14 +1,17 @@
-package network;
+package core;
+
+import gameContent.Definitions;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
+
 public class DataIN extends Thread {
 
 	private DatagramSocket udpSocket;
-	private byte[] data = new byte[100];
+	private byte[] data = new byte[Definitions.byteArraySize];
 	private DatagramPacket datagram = new DatagramPacket(data, data.length);
 	private boolean run = true;
 
@@ -34,15 +37,12 @@ public class DataIN extends Thread {
 		}
 	}
 
-	// public void stopThread() {
-	// run = false;
-	// }
-	//
-	// public void startThread() {
-	// run = true;
-	// }
-
 	public byte[] getNewData() {
 		return data;
 	}
+	
+	public byte getIncomingSecNum() {
+		return data[Definitions.byteArraySize-1];
+	}
+	
 }

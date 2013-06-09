@@ -1,11 +1,16 @@
 package gameContent;
 
-public class Enemy {
-	private String name;
-	private short speed;
-	private short damage;
-	private short armor;
-	private byte armorType;
+public abstract class Enemy {
+	public String name;
+	public short speed;
+	public short damage;
+	public short armor;
+	public byte armorType;
+	
+	public byte lightArmor = 100;
+	public byte mediumArmor = 101;
+	public byte heavyArmor = 102;
+
 
 	public String getName() {
 		return name;
