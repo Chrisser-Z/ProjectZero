@@ -41,7 +41,7 @@ public class DataIN extends Thread {
 		return data;
 	}
 	
-	public byte getIncomingSecNum() {
+	public byte getIncomingSeqNum() {
 		return data[Definitions.byteArraySize-1];
 	}
 	

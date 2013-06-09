@@ -34,10 +34,11 @@ public class Receiver {
 	}
 	
 	private Boolean compareSecNum() {
-		if (dataIn.getIncomingSecNum() == Definitions.secNum) {
+		if (dataIn.getIncomingSeqNum() == Definitions.seqNum) {
 			return true;
 		}	
-		Definitions.secNum = dataIn.getIncomingSecNum();
+		Definitions.seqNum = dataIn.getIncomingSeqNum();
+		System.out.println(Definitions.seqNum);
 		return false;		
 	}
 
