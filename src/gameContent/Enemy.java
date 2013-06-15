@@ -1,5 +1,7 @@
 package gameContent;
 
+import java.awt.Image;
+
 
 public abstract class Enemy {
 	public String name;
@@ -11,10 +13,23 @@ public abstract class Enemy {
 	public byte lightArmor = 100;
 	public byte mediumArmor = 101;
 	public byte heavyArmor = 102;
-	
 
 	public int posX = 0;
 	public int posY = 0;
+	
+	public Image image;
+	
+	public int randomPosX() {
+		return myRandom(-100, 0);
+	}
+	
+	public int randomPosY() {
+		return myRandom(0, Definitions.screenResolutionY);
+	}
+	
+	public int myRandom(int low, int high) {
+		return (int) (Math.random() * (high - low) + low);
+	}
 
 
 	public String getName() {

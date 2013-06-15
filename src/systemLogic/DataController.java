@@ -6,6 +6,7 @@ import gameContent.EnemyOne;
 import gameContent.EnemyTwo;
 
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.HashMap;
@@ -21,6 +22,7 @@ public class DataController extends Thread {
 	private Receiver receiver;
 	private GameWindow gameWindow;
 	private HashMap<Integer, Byte> newData = new HashMap<Integer, Byte>();
+	private GameLogic gameLogic;
 
 	
 	public DataController() {
@@ -38,7 +40,8 @@ public class DataController extends Thread {
 				
 				if (newData != null){
 					System.out.println("Trololol this is newData: " + newData);
-					gameWindow = new GameWindow(createEnemyList());
+					gameLogic = new GameLogic(newData);
+					gameWindow = new GameWindow(gameLogic);
 				 } else {}
 
 				sleep(1000);
@@ -49,28 +52,7 @@ public class DataController extends Thread {
 		}
 	}
 	
-	private LinkedList<Enemy> createEnemyList() {
-		LinkedList<Enemy> list = new LinkedList<Enemy>();
-		for (Entry<Integer, Byte> entry : newData.entrySet()){
-			list.add(createEnemy(entry.getKey(), entry.getValue()));
-		}
-		System.out.println(list);
-		return list;		
-	}
 	
-	private Enemy createEnemy(Integer i, Byte b) {
-		Enemy newEnemy = null;
-		System.out.println("EnemyID: " + i);
-		switch(i){
-			case Definitions.EnemyOneID:
-				newEnemy = new EnemyOne();
-				break;
-			case Definitions.EnemyTwoID:
-				newEnemy = new EnemyTwo();
-				break;
-		}	
-		return newEnemy;		
-	}
 
 
 

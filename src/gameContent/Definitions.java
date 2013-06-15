@@ -20,5 +20,9 @@ public abstract class Definitions {
 	public static boolean emitPermission = true;
 
 	public static final ArrayList<JTextField> enemyCounterList = new ArrayList<JTextField>();
-
+	
+	public final static int simulationSepInMillis = 32;
+	
+	public final static int screenResolutionX = 1920;
+	public final static int screenResolutionY = 1080;
 }
