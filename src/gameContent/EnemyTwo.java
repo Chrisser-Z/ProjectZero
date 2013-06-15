@@ -8,6 +8,8 @@ public class EnemyTwo extends Enemy {
 		super.speed = 1;
 		super.armor = 0;
 		super.armorType = super.mediumArmor;
+		super.posX = 600;
+		super.posY = 0;
 	}
 
 }

@@ -15,7 +15,7 @@ public class DataOUT {
 	public DataOUT() {
 		try {
 			udpSocket = new DatagramSocket(52013);
-			inetSocket = new InetSocketAddress("7.42.65.68", 52012);
+			inetSocket = new InetSocketAddress("127.0.0.1", 52012);
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
