@@ -1,5 +1,6 @@
 package gameContent;
 
+
 public abstract class Enemy {
 	public String name;
 	public short speed;
@@ -10,6 +11,10 @@ public abstract class Enemy {
 	public byte lightArmor = 100;
 	public byte mediumArmor = 101;
 	public byte heavyArmor = 102;
+	
+
+	public int posX = 0;
+	public int posY = 0;
 
 
 	public String getName() {
@@ -50,6 +55,22 @@ public abstract class Enemy {
 
 	public void setArmorType(byte armorType) {
 		this.armorType = armorType;
+	}
+	
+	public int getPosX() {
+		return posX;
+	}
+
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+
+	public void setPosY(int posY) {
+		this.posY = posY;
 	}
 
 }

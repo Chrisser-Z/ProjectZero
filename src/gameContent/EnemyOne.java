@@ -8,5 +8,7 @@ public class EnemyOne extends Enemy {
 		super.speed = 1;
 		super.armor = 0;
 		super.armorType = super.lightArmor;
+		super.posX = 200;
+		super.posY = 0;
 	}
 }
