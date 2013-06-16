@@ -1,12 +1,13 @@
 package gameContent;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
 public class Base {
 	private String name;
-	private short health;
+	private int health = 10;
 	private short gold;
 	private short defense;
 	private int posX = Definitions.screenResolutionX - 200;
@@ -16,6 +17,11 @@ public class Base {
 	public Base() {
 		ImageIcon ii = new ImageIcon("img/theWall.png");
         image = ii.getImage();
+	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle(getPosX(), getPosY(), image.getWidth(null), image.getHeight(null));
+		
 	}
 	
 	public int getPosX() {
@@ -42,11 +48,11 @@ public class Base {
 		this.name = name;
 	}
 
-	public short getHealth() {
+	public int getHealth() {
 		return health;
 	}
 
-	public void setHealth(short health) {
+	public void setHealth(int health) {
 		this.health = health;
 	}
 

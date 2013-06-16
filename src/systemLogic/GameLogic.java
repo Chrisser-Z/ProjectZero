@@ -6,6 +6,8 @@ import gameContent.Enemy;
 import gameContent.EnemyOne;
 import gameContent.EnemyTwo;
 
+import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -64,8 +66,33 @@ public class GameLogic {
 	
 	public void moveEnemies() {
 		for (Enemy e : getEnemyList()) {
-			e.setPosX(e.getPosX() + e.speed);
+			if(e.isAlive()){
+				e.setPosX(e.getPosX() + e.speed);	
+			}		
 		}
 	}
+	
+	public void checkCollisions() {
+		Rectangle rBase = base.getBounds();		
+		for (Enemy e: getEnemyList()){
+			Rectangle rEnemy = e.getBounds();
+			if(rEnemy.intersects(rBase)){
+				doOnCollisions(e);
+			}
+		}
+	}
+	
+	private void doOnCollisions(Enemy e){
+		if (e.isAlive()){
+			e.setAlive(false);
+			base.setHealth(base.getHealth()-1);			
+		}
+	}
+	
+	public void doDefeat() {
+		System.exit(1);
+	}
+	
+
 
 }

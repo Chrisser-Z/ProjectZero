@@ -28,9 +28,9 @@ public class GameView extends JPanel implements Runnable {
 	public void run() {
 		long beforeTime, timeDiff, sleep;
 		beforeTime = System.currentTimeMillis();
-		while (true) {
+		while (gameLogic.getBase().getHealth() > 0) {
 			gameLogic.moveEnemies();
-			
+			gameLogic.checkCollisions();
 			repaint();
 			timeDiff = System.currentTimeMillis() - beforeTime;
 			sleep = Definitions.simulationSepInMillis - timeDiff;
@@ -44,6 +44,7 @@ public class GameView extends JPanel implements Runnable {
 
 			beforeTime = System.currentTimeMillis();
 		}
+		gameLogic.doDefeat();
 
 	}
 
@@ -70,7 +71,9 @@ public class GameView extends JPanel implements Runnable {
 	
 	private void paintEnemies(Graphics2D g2d) {
 		for (Enemy e : gameLogic.getEnemyList()) {
-			g2d.drawImage(e.image, e.posX, e.posY, this);
+			if(e.isAlive()){
+				g2d.drawImage(e.image, e.posX, e.posY, this);
+			}
 		}
 	}
 	

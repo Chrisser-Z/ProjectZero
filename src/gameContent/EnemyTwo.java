@@ -7,7 +7,7 @@ public class EnemyTwo extends Enemy {
 	public EnemyTwo() {
 		super.name = "EnemyTwo";	
 		super.damage = 2;
-		super.speed = 2;
+		super.speed = 5;
 		super.armor = 0;
 		super.armorType = super.mediumArmor;
 		super.posX = super.randomPosX();

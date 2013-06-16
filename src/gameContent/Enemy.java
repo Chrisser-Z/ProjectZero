@@ -1,6 +1,7 @@
 package gameContent;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 
 
 public abstract class Enemy {
@@ -18,6 +19,14 @@ public abstract class Enemy {
 	public int posY = 0;
 	
 	public Image image;
+	
+	public boolean isAlive = true;
+	
+	
+
+	public Rectangle getBounds() {
+		return new Rectangle(getPosX(), getPosY(), image.getWidth(null), image.getHeight(null));
+	}
 	
 	public int randomPosX() {
 		return myRandom(-100, 0);
@@ -86,6 +95,14 @@ public abstract class Enemy {
 
 	public void setPosY(int posY) {
 		this.posY = posY;
+	}
+	
+	public boolean isAlive() {
+		return isAlive;
+	}
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
 	}
 
 }
