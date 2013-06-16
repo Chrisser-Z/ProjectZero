@@ -61,5 +61,11 @@ public class GameLogic {
 	public Base getBase() {
 		return base;
 	}
+	
+	public void moveEnemies() {
+		for (Enemy e : getEnemyList()) {
+			e.setPosX(e.getPosX() + e.speed);
+		}
+	}
 
 }
